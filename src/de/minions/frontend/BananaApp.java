@@ -67,6 +67,7 @@ public class BananaApp extends Application {
 
         Scene startSzene =new Scene(root, 500, 500);
         startSzene.getStylesheets().add("https://fonts.googleapis.com/css2?family=Rock+3D&display=swap");
+        startSzene.getStylesheets().add("file:resources/style.css");
         primaryStage.setScene(startSzene);
         primaryStage.show();
     }
