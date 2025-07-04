@@ -4,10 +4,12 @@ import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 
@@ -51,8 +53,16 @@ public class BananaApp extends Application {
         root.add(chef, 1,2);
         root.add(chefEingabe, 2, 2);
 
+        Button senden = new Button("senden");
+        Button abbrechen = new Button("Abbrechen");
+        Button wechseln = new Button("Scene wechseln");
 
+        HBox behaelterFuerButtons = new HBox();
+        behaelterFuerButtons.getChildren().addAll(senden, abbrechen, wechseln);
+        root.add(behaelterFuerButtons, 0,3,3,1);
         root.add(begruessung, 0, 0, 4, 1);
+
+
         Scene startSzene =new Scene(root, 500, 500);
         startSzene.getStylesheets().add("https://fonts.googleapis.com/css2?family=Rock+3D&display=swap");
         primaryStage.setScene(startSzene);
