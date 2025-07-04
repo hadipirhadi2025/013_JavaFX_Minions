@@ -5,6 +5,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
@@ -44,7 +45,14 @@ public class BananaApp extends Application {
         root.add(minion, 1, 1);
         root.add(minionEingabe, 2, 1);
 
-        root.add(begruessung, 0, 0);
+        Label chef = new Label("Chef");
+        PasswordField chefEingabe = new PasswordField();
+        //root.add(minion, 1, 1);
+        root.add(chef, 1,2);
+        root.add(chefEingabe, 2, 2);
+
+
+        root.add(begruessung, 0, 0, 4, 1);
         Scene startSzene =new Scene(root, 500, 500);
         startSzene.getStylesheets().add("https://fonts.googleapis.com/css2?family=Rock+3D&display=swap");
         primaryStage.setScene(startSzene);
