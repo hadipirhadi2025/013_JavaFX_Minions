@@ -35,8 +35,12 @@ public class BananaApp extends Application {
         root.setPadding(new Insets(7));
 
         Label begruessung = new Label("Willkommen bei den Minions");
+        begruessung.setStyle("-fx-font-family: \"Rock 3D\", system-ui;" +
+                "-fx-font-size: 26;");
+
         root.add(begruessung, 0, 0);
         Scene startSzene =new Scene(root, 500, 500);
+        startSzene.getStylesheets().add("https://fonts.googleapis.com/css2?family=Rock+3D&display=swap");
         primaryStage.setScene(startSzene);
         primaryStage.show();
     }
