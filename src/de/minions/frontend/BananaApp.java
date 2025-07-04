@@ -5,6 +5,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
@@ -36,7 +37,12 @@ public class BananaApp extends Application {
 
         Label begruessung = new Label("Willkommen bei den Minions");
         begruessung.setStyle("-fx-font-family: \"Rock 3D\", system-ui;" +
-                "-fx-font-size: 26;");
+                "-fx-font-size: 16;");
+
+        Label minion = new Label("Minion");
+        TextField minionEingabe  =new TextField();
+        root.add(minion, 1, 1);
+        root.add(minionEingabe, 2, 1);
 
         root.add(begruessung, 0, 0);
         Scene startSzene =new Scene(root, 500, 500);
