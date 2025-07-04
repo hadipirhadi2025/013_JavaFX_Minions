@@ -29,9 +29,22 @@ import javafx.stage.Stage;
  *     Parent enthält "Controls" zb Button, TextField ...
  */
 public class BananaApp extends Application {
+    private Stage primaryStage;
+    /**
+     * Statt Konstruktor finden werden alle Initioalisierungen hier vorgenommen
+     * zb Datenbanktzgriff, ...
+     * Wird auromatisch aufgerufen
+     */
+    @Override
+    public void init()  {
+        System.out.println("Ist das erste, was von einer Applikation aufgerufen wird (VoR der start-Methode");
+        System.out.println("Die Satge : " + primaryStage);
+    }
+
     @Override
     public void start(Stage primaryStage)  {
-        primaryStage.setTitle("NananAAAAA"); //Setzt den Fenster Titel
+        this.primaryStage = primaryStage;
+        primaryStage.setTitle("BaNanAAAAA"); //Setzt den Fenster Titel
         GridPane root = new GridPane();
         root.setAlignment(Pos.CENTER);
         root.setHgap(5);
@@ -70,5 +83,11 @@ public class BananaApp extends Application {
         startSzene.getStylesheets().add("file:resources/style.css");
         primaryStage.setScene(startSzene);
         primaryStage.show();
+    }
+
+    @Override
+    public void stop()  {
+        System.out.println("Wird aufgerufen, wenn die App sauber beendet wird (zb x)");
+        System.out.println("Wird zum Aufräumen benutzt.");
     }
 }
