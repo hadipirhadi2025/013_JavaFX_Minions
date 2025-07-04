@@ -62,6 +62,7 @@ public class BananaApp extends Application {
         root.add(behaelterFuerButtons, 0,3,3,1);
         root.add(begruessung, 0, 0, 4, 1);
 
+        senden.setOnAction(klick-> System.out.println("Gesendet") );
 
         Scene startSzene =new Scene(root, 500, 500);
         startSzene.getStylesheets().add("https://fonts.googleapis.com/css2?family=Rock+3D&display=swap");
