@@ -1,5 +1,6 @@
 package de.minions.frontend;
 
+
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -12,59 +13,60 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
-
 /**
  * <pre>
- *     Demonistriert eine JavaFx Anwendung
- *     File -> Project stucture -> Libraries->+->Java ->JAR->auswählen ->OK * </pre>
+ *     Demonstriert eine JavaFX Anwendung
+ *     File → Project Structure → Libraries → + → Java → JAR auswählen → OK
  *
- *     --module-path "C:\Users\alfa\Desktop\Bibliotheken\javafx-sdk-21.0.7\lib" --add-modules javafx.controls
- *     --module-path "C:\Users\alfa\Desktop\Bibliotheken\javafx-sdk-21.0.7\lib" --add-modules javafx.controls
+ *      --module-path "C:\Users\alfa\Desktop\Bibliotheken\javafx-sdk-21.0.7\lib" --add-modules javafx.controls
  *
- *     Pro Projektte nur einmal extends Application!!!!
+ *      Pro Projekte nur einmal extends Application!!!!
  *
- *     Stage: (Fenster) -> Bühne
- *     Stage: (Das was im Fenster angezeigt wird) - Szene
- *     Parent/root (Organisation der Fenster Inhalt) -> Bühnenbild
- *     Parent enthält "Controls" zb Button, TextField ...
+ *      Stage: (Fenster) -> Bühne
+ *      Scene: (Das was im Fenster angezeigt wird) -> Szene
+ *      Parent/root (Organisation der Fenster Inhalte) -> Bühnenbild
+ *      Parent enthält "Conrols" zb Button, TextField...
+ * </pre>
  */
 public class BananaApp extends Application {
+
     private Stage primaryStage;
     /**
-     * Statt Konstruktor finden werden alle Initioalisierungen hier vorgenommen
-     * zb Datenbanktzgriff, ...
-     * Wird auromatisch aufgerufen
+     * Statt Konstruktor finden  werden alle Initialisierungen hier vorgenommen
+     * zb Datenbankzugriff, ....
+     * Wird automatisch aufgerufen
      */
     @Override
-    public void init()  {
-        System.out.println("Ist das erste, was von einer Applikation aufgerufen wird (VoR der start-Methode");
-        System.out.println("Die Satge : " + primaryStage);
+    public void init() {
+        System.out.println("Ist das erste, was von einer Applikation aufgerufen wird (VOR der start-Methode)");
+        System.out.println("Die Stage: " + primaryStage);
     }
 
     @Override
-    public void start(Stage primaryStage)  {
+    public void start(Stage primaryStage){
         this.primaryStage = primaryStage;
-        primaryStage.setTitle("BaNanAAAAA"); //Setzt den Fenster Titel
+        primaryStage.setTitle("BANANAAAAA");//Setzt den Fenster Titel
         GridPane root = new GridPane();
         root.setAlignment(Pos.CENTER);
         root.setHgap(5);
         root.setVgap(5);
         root.setPadding(new Insets(7));
 
-        Label begruessung = new Label("Willkommen bei den Minions");
+        Label begruessung = new Label("Willkommen");
+        root.add(begruessung,0,0,4,1);
         begruessung.setStyle("-fx-font-family: \"Rock 3D\", system-ui;" +
-                "-fx-font-size: 16;");
+                "-fx-font-size: 35;");
 
         Label minion = new Label("Minion");
-        TextField minionEingabe  =new TextField();
-        root.add(minion, 1, 1);
-        root.add(minionEingabe, 2, 1);
+        TextField minionEingabe = new TextField();
+        root.add(minion,1,1);
+        root.add(minionEingabe,2,1);
 
         Label chef = new Label("Chef");
+        chef.setId("chef");
         PasswordField chefEingabe = new PasswordField();
-        //root.add(minion, 1, 1);
-        root.add(chef, 1,2);
-        root.add(chefEingabe, 2, 2);
+        root.add(chef,1,2);
+        root.add(chefEingabe,2,2);
 
         Button senden = new Button("senden");
         Button abbrechen = new Button("Abbrechen");
@@ -72,13 +74,12 @@ public class BananaApp extends Application {
 
         HBox behaelterFuerButtons = new HBox();
         behaelterFuerButtons.getChildren().addAll(senden, abbrechen, wechseln);
-        root.add(behaelterFuerButtons, 0,3,3,1);
-        root.add(begruessung, 0, 0, 4, 1);
+        root.add(behaelterFuerButtons,0,3,3,1);
 
-        senden.setOnAction(klick-> System.out.println("Gesendet") );
-        abbrechen.setOnAction(klick->minionEingabe.setText(""));
+        senden.setOnAction(klick -> System.out.println("Gesendet"));
+        abbrechen.setOnAction(klick -> minionEingabe.setText(""));
 
-        Scene startSzene =new Scene(root, 500, 500);
+        Scene startSzene = new Scene(root,500,500);
         startSzene.getStylesheets().add("https://fonts.googleapis.com/css2?family=Rock+3D&display=swap");
         startSzene.getStylesheets().add("file:resources/style.css");
         primaryStage.setScene(startSzene);
@@ -86,7 +87,7 @@ public class BananaApp extends Application {
     }
 
     @Override
-    public void stop()  {
+    public void stop(){
         System.out.println("Wird aufgerufen, wenn die App sauber beendet wird (zb x)");
         System.out.println("Wird zum Aufräumen benutzt.");
     }
