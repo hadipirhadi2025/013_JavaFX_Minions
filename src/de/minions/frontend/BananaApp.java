@@ -31,6 +31,7 @@ import javafx.stage.Stage;
 public class BananaApp extends Application {
 
     private Stage primaryStage;
+    private KaugummiSceneCreator kaugummiSceneCreator;
     /**
      * Statt Konstruktor finden  werden alle Initialisierungen hier vorgenommen
      * zb Datenbankzugriff, ....
@@ -40,6 +41,7 @@ public class BananaApp extends Application {
     public void init() {
         System.out.println("Ist das erste, was von einer Applikation aufgerufen wird (VOR der start-Methode)");
         System.out.println("Die Stage: " + primaryStage);
+        kaugummiSceneCreator = new KaugummiSceneCreator();
     }
 
     @Override
@@ -93,6 +95,11 @@ public class BananaApp extends Application {
      */
     private void anzegenKaugummiAnimation(){
         System.out.println("Die Kaugummianimation wird angezeigt.");
+
+        Scene kaugummiScene = kaugummiSceneCreator.getKaugummiScene();
+        primaryStage.setScene(kaugummiScene);
+        kaugummiSceneCreator.startDerAnimation();
+
     }
 
     @Override
