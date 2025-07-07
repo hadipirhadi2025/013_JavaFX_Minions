@@ -65,12 +65,14 @@ public class BananaApp extends Application {
         Label chef = new Label("Chef");
         chef.setId("chef");
         PasswordField chefEingabe = new PasswordField();
+        chefEingabe.setOnZoom(zoom-> System.out.println("zoom"));
         root.add(chef,1,2);
         root.add(chefEingabe,2,2);
 
         Button senden = new Button("senden");
         Button abbrechen = new Button("Abbrechen");
         Button wechseln = new Button("Scene wechseln");
+        wechseln.setOnAction(klick-> anzegenKaugummiAnimation());
 
         HBox behaelterFuerButtons = new HBox();
         behaelterFuerButtons.getChildren().addAll(senden, abbrechen, wechseln);
@@ -84,6 +86,13 @@ public class BananaApp extends Application {
         startSzene.getStylesheets().add("file:resources/style.css");
         primaryStage.setScene(startSzene);
         primaryStage.show();
+    }
+
+    /**
+     *
+     */
+    private void anzegenKaugummiAnimation(){
+        System.out.println("Die Kaugummianimation wird angezeigt.");
     }
 
     @Override
