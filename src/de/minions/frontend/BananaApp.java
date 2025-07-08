@@ -87,6 +87,9 @@ public class BananaApp extends Application {
         startSzene.getStylesheets().add("https://fonts.googleapis.com/css2?family=Rock+3D&display=swap");
         startSzene.getStylesheets().add("file:resources/style.css");
         primaryStage.setScene(startSzene);
+        // sent aktuelle Stage und Scene im nächst Scene
+        kaugummiSceneCreator.setMyStage(primaryStage);
+        kaugummiSceneCreator.setPreviousScen(startSzene);
         primaryStage.show();
     }
 
@@ -99,6 +102,7 @@ public class BananaApp extends Application {
         Scene kaugummiScene = kaugummiSceneCreator.getKaugummiScene();
         primaryStage.setScene(kaugummiScene);
         kaugummiSceneCreator.startDerAnimation();
+        System.out.println("before goto stop leave ahndel here");
 
     }
 
@@ -107,4 +111,5 @@ public class BananaApp extends Application {
         System.out.println("Wird aufgerufen, wenn die App sauber beendet wird (zb x)");
         System.out.println("Wird zum Aufräumen benutzt.");
     }
+
 }

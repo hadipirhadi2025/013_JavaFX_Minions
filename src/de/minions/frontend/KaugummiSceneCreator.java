@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 /**
@@ -27,6 +28,19 @@ public class KaugummiSceneCreator  {
      * Ruft die Methode erstelleAnimation auf, um sicher zu stellen,
      * dass sie getKaugummiScene nicht null zurückgibt
      */
+
+    /** stage transition kontroller*/
+    private Stage myStage;
+
+    public void setPreviousScen(Scene previousScen) {
+        this.previousScen = previousScen;
+    }
+
+    public void setMyStage(Stage myStage) {
+        this.myStage = myStage;
+    }
+    /** speicher lästest Scene*/
+    private Scene previousScen;
     public KaugummiSceneCreator(){
         erstellenAnimation();
     }
@@ -59,7 +73,15 @@ public class KaugummiSceneCreator  {
 
     public void startDerAnimation(){
         animation.play();
-        animation.setOnFinished(ende-> Platform.exit());
+        //animation.setOnFinished(ende-> Platform.exit());
+        animation.setOnFinished(ende->{
+            if(myStage!=null && previousScen!=null){
+                myStage.setScene(previousScen);
+            }else{
+                Platform.exit();
+            }
+        });
+
     }
 
     /**
